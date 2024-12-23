@@ -1,0 +1,19 @@
+@media (max-width: 600px) and (min-width: 400px) {
+ 
+  #signup .background {
+    height: 35vh;
+  }
+  #signup .background .image {
+    height: 100%;
+  }
+}
+
+@media (max-width: 399px) and (min-width: 300px) {
+ 
+  #signup .background {
+    height: 30vh;
+  }
+  #signup .background .image {
+    height: 100%;
+  }
+}

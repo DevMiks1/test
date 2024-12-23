@@ -1,0 +1,23 @@
+.step-container {
+  position: relative;
+  display: inline-block;
+}
+
+.step-container.connected-step::after {
+  content: "";
+  position: absolute;
+  width: calc(100% - 27px);
+  height: 5px;
+  background-color: white;
+  top: 24%;
+  transform: translateY(-50%);
+  right: -1.5rem;
+}
+
+.step-container.connected-step.is-completed::after {
+  background-color: green;
+}
+
+.step-container:not(.connected-step)::after {
+  content: none;
+}

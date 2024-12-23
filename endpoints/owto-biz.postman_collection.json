@@ -1,0 +1,1217 @@
+{
+	"info": {
+		"_postman_id": "bc3eec62-38a2-425a-a79e-1e0daa939c97",
+		"name": "owto-biz",
+		"description": "owto-business api collections.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30477632",
+		"_collection_link": "https://hoodteam.postman.co/workspace/owto-2024~9cdd889e-a9b0-4ed9-afd7-10e253d44d8b/collection/34816673-bc3eec62-38a2-425a-a79e-1e0daa939c97?action=share&source=collection_link&creator=30477632"
+	},
+	"item": [
+		{
+			"name": "auth",
+			"item": [
+				{
+					"name": "google signin",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // google code\n    \"code\": \"4/0ATx3LY5Bt6yBL3OxyHqoUNhKyzK5TMPTA4IlztPIiyEI_dDEc6SvTpAwWp3ScgKuFNauAw\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{owtoUserApiUrl}}/owto-biz/api/auth/google/exchange/token",
+							"host": [
+								"{{owtoUserApiUrl}}"
+							],
+							"path": [
+								"owto-biz",
+								"api",
+								"auth",
+								"google",
+								"exchange",
+								"token"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client",
+			"item": [
+				{
+					"name": "update profile",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{clientToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"mobileNumber\": \"+639193179587\",\n    \"profileImg\": \"https://test.com\",\n    \"companyName\": \"test\",\n    \"companyAddress\": \"a\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{owtoUserApiUrl}}/owto-biz/api/clients/me",
+							"host": [
+								"{{owtoUserApiUrl}}"
+							],
+							"path": [
+								"owto-biz",
+								"api",
+								"clients",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "client-employee",
+			"item": [
+				{
+					"name": "add employee",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {}
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{clientToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"email\": \"pwedesaken@gmail.com\",\n    \"mobileNumber\": \"+639123456782\",\n    \"firstName\": \"employee\",\n    \"lastName\": \"one\",\n    \"middleName\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{owtoUserApiUrl}}/owto-biz/api/client-employees",
+							"host": [
+								"{{owtoUserApiUrl}}"
+							],
+							"path": [
+								"owto-biz",
+								"api",
+								"client-employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get single employee",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{clientToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{owtoUserApiUrl}}/owto-biz/api/client-employees/2",
+							"host": [
+								"{{owtoUserApiUrl}}"
+							],
+							"path": [
+								"owto-biz",
+								"api",
+								"client-employees",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "get employees",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"connection": true,
+							"accept-encoding": true,
+							"accept": true,
+							"user-agent": true,
+							"host": true
+						}
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{clientToken}}",
+								"type": "text"
+							},
+							{
+								"key": "x-user-type",
+								"value": "client",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{owtoUserApiUrl}}/owto-biz/api/client-employees",
+							"host": [
+								"{{owtoUserApiUrl}}"
+							],
+							"path": [
+								"owto-biz",
+								"api",
+								"client-employees"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update employee",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Cache-Control",
+								"value": "no-cache",
+								"name": "cache-control",
+								"type": "text"
+							},
+							{
+								"key": "Postman-Token",
+								"value": "<calculated when request is sent>",
+								"name": "postman-token",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"name": "content-type",
+								"type": "text"
+							},
+							{
+								"key": "Content-Length",
+								"value": "<calculated when request is sent>",
+								"name": "content-length",
+								"type": "text"
+							},
+							{
+								"key": "Host",
+								"value": "<calculated when request is sent>",
+								"name": "host",
+								"type": "text"
+							},
+							{
+								"key": "User-Agent",
+								"value": "PostmanRuntime/7.32.1",
+								"name": "user-agent",
+								"type": "text"
+							},
+							{
+								"key": "Accept",
+								"value": "*/*",
+								"name": "accept",
+								"type": "text"
+							},
+							{
+								"key": "Accept-Encoding",
+								"value": "gzip, deflate, br",
+								"name": "accept-encoding",
+								"type": "text"
+							},
+							{
+								"key": "Connection",
+								"value": "keep-alive",
+								"name": "connection",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer {{clientToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    // \"email\": \"testemployee2@gmail.com\", email is not editable in the meantime\n    \"mobileNumber\": \"+639123456781\",\n    \"firstName\": \"employee\",\n    \"lastName\": \"two\",\n    \"middleName\": \"\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{owtoUserApiUrl}}/owto-biz/api/client-employees/2",
+							"host": [
+								"{{owtoUserApiUrl}}"
+							],
+							"path": [
+								"owto-biz",
+								"api",
+								"client-employees",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "request verification",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"content-length": true
+						}
+					},
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{clientToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{owtoUserApiUrl}}/owto-biz/api/client-employees/2/request-verification",
+							"host": [
+								"{{owtoUserApiUrl}}"
+							],
+							"path": [
+								"owto-biz",
+								"api",
+								"client-employees",
+								"2",
+								"request-verification"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "verify otp",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{clientToken}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"otp\": 748570\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{owtoUserApiUrl}}/owto-biz/api/client-employees/2/verify",
+							"host": [
+								"{{owtoUserApiUrl}}"
+							],
+							"path": [
+								"owto-biz",
+								"api",
+								"client-employees",
+								"2",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "location",
+			"item": [
+				{
+					"name": "search",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{clientToken}}",
+								"type": "text"
+							},
+							{
+								"key": "x-user-type",
+								"value": "client",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{owtoUserApiUrl}}/owto-biz/api/locations/search?q=sm fairview&coordinates=14.638247,121.02592",
+							"host": [
+								"{{owtoUserApiUrl}}"
+							],
+							"path": [
+								"owto-biz",
+								"api",
+								"locations",
+								"search"
+							],
+							"query": [
+								{
+									"key": "q",
+									"value": "sm fairview"
+								},
+								{
+									"key": "coordinates",
+									"value": "14.638247,121.02592",
+									"description": "current user's location as center"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "identify",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{clientToken}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{owtoUserApiUrl}}/owto-biz/api/locations/identify?coordinates=14.638247,121.02592",
+							"host": [
+								"{{owtoUserApiUrl}}"
+							],
+							"path": [
+								"owto-biz",
+								"api",
+								"locations",
+								"identify"
+							],
+							"query": [
+								{
+									"key": "coordinates",
+									"value": "14.638247,121.02592"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "booking",
+			"item": [
+				{
+					"name": "corporate",
+					"item": [
+						{
+							"name": "estimate",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{clientToken}}",
+										"type": "text"
+									},
+									{
+										"key": "x-user-type",
+										"value": "client",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{owtoUserApiUrl}}/owto-biz/api/clients/bookings/estimate?pickUpPoint=14.638247,121.02592&dropOffPoint=14.7449567,121.0558717&pickUpAddress=karlen&dropOffAddress=pakshet&seatCount=1&employeeId=1",
+									"host": [
+										"{{owtoUserApiUrl}}"
+									],
+									"path": [
+										"owto-biz",
+										"api",
+										"clients",
+										"bookings",
+										"estimate"
+									],
+									"query": [
+										{
+											"key": "pickUpPoint",
+											"value": "14.638247,121.02592"
+										},
+										{
+											"key": "dropOffPoint",
+											"value": "14.7449567,121.0558717"
+										},
+										{
+											"key": "pickUpAddress",
+											"value": "karlen"
+										},
+										{
+											"key": "dropOffAddress",
+											"value": "pakshet"
+										},
+										{
+											"key": "seatCount",
+											"value": "1"
+										},
+										{
+											"key": "riderId",
+											"value": "fb-h2Rv9uL1Zofi4clvm8unyECuADm1",
+											"disabled": true
+										},
+										{
+											"key": "employeeId",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "request booking",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{clientToken}}",
+										"type": "text"
+									},
+									{
+										"key": "x-user-type",
+										"value": "client",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"estimateId\": \"92f7c600-47f8-4fae-9b41-e338d7f0a12d\",\n    \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n    \"noteToDriver\": \"mama maoy\",\n    \"passengers\": [\n        {\n            \"employeeId\": 1,\n            \"isRepresentative\": true\n        },\n        {\n            \"employeeId\": 2\n        },\n        {\n            \"employeeId\": null, // no id treats as guest passenger\n            \"name\": \"\" // optional\n        }\n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{owtoUserApiUrl}}/owto-biz/api/clients/bookings/request",
+									"host": [
+										"{{owtoUserApiUrl}}"
+									],
+									"path": [
+										"owto-biz",
+										"api",
+										"clients",
+										"bookings",
+										"request"
+									],
+									"query": [
+										{
+											"key": "pickUpPoint",
+											"value": "14.638247,121.02592",
+											"disabled": true
+										},
+										{
+											"key": "dropOffPoint",
+											"value": "14.7449567,121.0558717",
+											"disabled": true
+										},
+										{
+											"key": "pickUpAddress",
+											"value": "test pickup hahahaha",
+											"disabled": true
+										},
+										{
+											"key": "dropOffAddress",
+											"value": "test dropoff hahahaha",
+											"disabled": true
+										},
+										{
+											"key": "seatCount",
+											"value": "1",
+											"disabled": true
+										},
+										{
+											"key": "employeeId",
+											"value": "1",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "request booking",
+									"originalRequest": {
+										"method": "POST",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{clientToken}}",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"estimateId\": \"39b849ad-6751-4d81-8c49-27e97d2e807d\",\n    \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n    \"noteToDriver\": \"mama maoy\",\n    \"passengers\": [\n        {\n            \"employeeId\": 1,\n            \"isRepresentative\": true\n        },\n        {\n            \"employeeId\": 2\n        },\n        {\n            \"employeeId\": null, // no id treats as guest passenger\n            \"name\": \"\" // optional\n        }\n    ]\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{owtoUserApiUrl}}/owto-biz/api/clients/bookings/request",
+											"host": [
+												"{{owtoUserApiUrl}}"
+											],
+											"path": [
+												"owto-biz",
+												"api",
+												"clients",
+												"bookings",
+												"request"
+											],
+											"query": [
+												{
+													"key": "pickUpPoint",
+													"value": "14.638247,121.02592",
+													"disabled": true
+												},
+												{
+													"key": "dropOffPoint",
+													"value": "14.7449567,121.0558717",
+													"disabled": true
+												},
+												{
+													"key": "pickUpAddress",
+													"value": "test pickup hahahaha",
+													"disabled": true
+												},
+												{
+													"key": "dropOffAddress",
+													"value": "test dropoff hahahaha",
+													"disabled": true
+												},
+												{
+													"key": "seatCount",
+													"value": "1",
+													"disabled": true
+												},
+												{
+													"key": "employeeId",
+													"value": "1",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "80"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"50-AIkPgrL9Dhc81iZJWFH9V9Myb7A\""
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 12 Sep 2024 19:59:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"data\": {\n        \"bookingId\": \"061693ab-3cc3-47f3-a4aa-5b5d8f065297\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "client bookings - wip",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{clientToken}}",
+										"type": "text"
+									},
+									{
+										"key": "x-user-type",
+										"value": "client",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{owtoUserApiUrl}}/owto-biz/api/clients/bookings/me",
+									"host": [
+										"{{owtoUserApiUrl}}"
+									],
+									"path": [
+										"owto-biz",
+										"api",
+										"clients",
+										"bookings",
+										"me"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "client bookings",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{clientToken}}",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{owtoUserApiUrl}}/owto-biz/api/clients/bookings/me",
+											"host": [
+												"{{owtoUserApiUrl}}"
+											],
+											"path": [
+												"owto-biz",
+												"api",
+												"clients",
+												"bookings",
+												"me"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "3458"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"d82-+nvpJTkHKfPp/Zdbws+aP7NFluo\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 13 Sep 2024 06:16:47 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 3,\n            \"bookingId\": \"9f66bf88-50bb-4c5a-b6ed-a11257cc48ac\",\n            \"acceptedAt\": null,\n            \"passengers\": [\n                {\n                    \"employeeId\": 1,\n                    \"isRepresentative\": true\n                },\n                {\n                    \"employeeId\": 2\n                },\n                {\n                    \"employeeId\": null,\n                    \"name\": \"\"\n                }\n            ],\n            \"bookingDate\": \"2024-07-22T06:54:23.414Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"driverName\": null,\n            \"plateNumber\": null,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": 4,\n            \"bookingId\": \"8d5986d9-a387-470c-9709-bb5ed70fa930\",\n            \"acceptedAt\": null,\n            \"passengers\": [\n                {\n                    \"employeeId\": 1,\n                    \"isRepresentative\": true\n                },\n                {\n                    \"employeeId\": 2\n                },\n                {\n                    \"employeeId\": null,\n                    \"name\": \"\"\n                }\n            ],\n            \"bookingDate\": \"2024-07-22T06:56:05.000Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"driverName\": null,\n            \"plateNumber\": null,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": 5,\n            \"bookingId\": \"b1d96324-f18e-44ad-8fe4-b2dc3e853ddc\",\n            \"acceptedAt\": null,\n            \"passengers\": [\n                {\n                    \"employeeId\": 1,\n                    \"isRepresentative\": true\n                },\n                {\n                    \"employeeId\": 2\n                },\n                {\n                    \"employeeId\": null,\n                    \"name\": \"\"\n                }\n            ],\n            \"bookingDate\": \"2024-07-22T06:56:14.850Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"driverName\": null,\n            \"plateNumber\": null,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": 7,\n            \"bookingId\": \"3be8bceb-8174-4d45-bd2a-916272e9e01b\",\n            \"acceptedAt\": null,\n            \"passengers\": [\n                {\n                    \"employeeId\": 1,\n                    \"isRepresentative\": true\n                },\n                {\n                    \"employeeId\": 2\n                },\n                {\n                    \"employeeId\": null,\n                    \"name\": \"\"\n                }\n            ],\n            \"bookingDate\": \"2024-08-01T17:08:26.984Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"driverName\": null,\n            \"plateNumber\": null,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": 1,\n            \"bookingId\": \"b40a57b2-472e-4ae5-9532-bd4b4cebc233\",\n            \"acceptedAt\": \"2024-09-08T14:09:05.254Z\",\n            \"passengers\": [\n                {\n                    \"employeeId\": 1,\n                    \"isRepresentative\": true\n                },\n                {\n                    \"employeeId\": 2\n                },\n                {\n                    \"employeeId\": null,\n                    \"name\": \"\"\n                }\n            ],\n            \"bookingDate\": \"2024-07-21T12:15:56.504Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"driverName\": \"Karlen Pakyu\",\n            \"plateNumber\": \"CAD6551\",\n            \"status\": \"ACCEPTED\"\n        },\n        {\n            \"id\": 2,\n            \"bookingId\": \"6a913f26-1c1a-48a4-bff9-79a524a4068d\",\n            \"acceptedAt\": \"2024-09-08T14:11:25.032Z\",\n            \"passengers\": [\n                {\n                    \"employeeId\": 1,\n                    \"isRepresentative\": true\n                },\n                {\n                    \"employeeId\": 2\n                },\n                {\n                    \"employeeId\": null,\n                    \"name\": \"\"\n                }\n            ],\n            \"bookingDate\": \"2024-07-21T12:31:15.192Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"driverName\": \"Karlen Pakyu\",\n            \"plateNumber\": \"CAD6551\",\n            \"status\": \"ACCEPTED\"\n        },\n        {\n            \"id\": 11,\n            \"bookingId\": \"bef07438-aa03-4896-b779-dd6ba9b086bf\",\n            \"acceptedAt\": \"2024-09-08T17:45:41.071Z\",\n            \"passengers\": [\n                {\n                    \"employeeId\": 1,\n                    \"isRepresentative\": true\n                },\n                {\n                    \"employeeId\": 2\n                },\n                {\n                    \"employeeId\": null,\n                    \"name\": \"\"\n                }\n            ],\n            \"bookingDate\": \"2024-09-08T17:42:32.280Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"driverName\": \"Karlen Pakyu\",\n            \"plateNumber\": \"CAD6551\",\n            \"status\": \"ACCEPTED\"\n        },\n        {\n            \"id\": 12,\n            \"bookingId\": \"fc31805d-4cc6-4e04-b6d2-60c7bcf2261b\",\n            \"acceptedAt\": null,\n            \"passengers\": [\n                {\n                    \"employeeId\": 1,\n                    \"isRepresentative\": true\n                },\n                {\n                    \"employeeId\": 2\n                },\n                {\n                    \"employeeId\": null,\n                    \"name\": \"\"\n                }\n            ],\n            \"bookingDate\": \"2024-09-09T08:07:10.993Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"driverName\": null,\n            \"plateNumber\": null,\n            \"status\": \"PENDING\"\n        },\n        {\n            \"id\": 13,\n            \"bookingId\": \"061693ab-3cc3-47f3-a4aa-5b5d8f065297\",\n            \"acceptedAt\": null,\n            \"passengers\": [\n                {\n                    \"employeeId\": 1,\n                    \"isRepresentative\": true\n                },\n                {\n                    \"employeeId\": 2\n                },\n                {\n                    \"employeeId\": null,\n                    \"name\": \"\"\n                }\n            ],\n            \"bookingDate\": \"2024-09-12T19:59:29.917Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"driverName\": null,\n            \"plateNumber\": null,\n            \"status\": \"PENDING\"\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "driver",
+					"item": [
+						{
+							"name": "unclaimed bookings",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}",
+										"description": "driver jwt token from main server",
+										"type": "text"
+									},
+									{
+										"key": "x-user-type",
+										"value": "driver",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{owtoUserApiUrl}}/owto-biz/api/drivers/bookings",
+									"host": [
+										"{{owtoUserApiUrl}}"
+									],
+									"path": [
+										"owto-biz",
+										"api",
+										"drivers",
+										"bookings"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "unclaimed bookings",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{driverToken}}",
+												"description": "driver jwt token from main server",
+												"type": "text"
+											},
+											{
+												"key": "x-user-type",
+												"value": "driver",
+												"type": "text"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n    \"driverId\": \"fb-wXKkKOFR2qQ9Do9I027tArmJQtz1\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{owtoUserApiUrl}}/owto-biz/api/drivers/bookings",
+											"host": [
+												"{{owtoUserApiUrl}}"
+											],
+											"path": [
+												"owto-biz",
+												"api",
+												"drivers",
+												"bookings"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "4312"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"10d8-GmTuJjyy0wxNBa7Qz1coIOdCDDc\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 17 Sep 2024 20:47:28 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 8,\n            \"companyName\": \"Mike Alfred Co.\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"0f24939e-f879-4e63-8962-8d30b724131e\",\n            \"pickUpAddress\": \"Apolonio's Mango Farm, Barangay Macabud Rodriguez Rizal\",\n            \"dropOffAddress\": \"Apolonio's Mango Farm, Barangay Macabud Rodriguez Rizal\",\n            \"bookingDate\": \"2024-08-02T03:35:43.857Z\",\n            \"scheduleDate\": \"2024-08-02T20:35:00.000Z\",\n            \"fare\": 55\n        },\n        {\n            \"id\": 10,\n            \"companyName\": \"Mike Alfred Co.\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"b5923a44-02f9-40da-8dda-1f1cd899b142\",\n            \"pickUpAddress\": \"One Digital Studios\",\n            \"dropOffAddress\": \"Manila Bay Spinning Mills Inc\",\n            \"bookingDate\": \"2024-08-02T04:21:11.657Z\",\n            \"scheduleDate\": \"2024-08-03T10:20:00.000Z\",\n            \"fare\": 351.83\n        },\n        {\n            \"id\": 5,\n            \"companyName\": \"arbitrary\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"b1d96324-f18e-44ad-8fe4-b2dc3e853ddc\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"bookingDate\": \"2024-07-22T06:56:14.850Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"fare\": 775.54\n        },\n        {\n            \"id\": 7,\n            \"companyName\": \"arbitrary\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"3be8bceb-8174-4d45-bd2a-916272e9e01b\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"bookingDate\": \"2024-08-01T17:08:26.984Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"fare\": 729.83\n        },\n        {\n            \"id\": 12,\n            \"companyName\": \"arbitrary\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"fc31805d-4cc6-4e04-b6d2-60c7bcf2261b\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"bookingDate\": \"2024-09-09T08:07:10.993Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"fare\": 769.28\n        },\n        {\n            \"id\": 13,\n            \"companyName\": \"arbitrary\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"061693ab-3cc3-47f3-a4aa-5b5d8f065297\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"bookingDate\": \"2024-09-12T19:59:29.917Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"fare\": 703.33\n        },\n        {\n            \"id\": 3,\n            \"companyName\": \"arbitrary\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"9f66bf88-50bb-4c5a-b6ed-a11257cc48ac\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"bookingDate\": \"2024-07-22T06:54:23.414Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"fare\": 776.22\n        },\n        {\n            \"id\": 14,\n            \"companyName\": \"arbitrary\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"b7e55fb7-786e-498d-b4a3-308ca8248e42\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"bookingDate\": \"2024-09-17T15:44:51.357Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"fare\": 710.42\n        },\n        {\n            \"id\": 4,\n            \"companyName\": \"arbitrary\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"8d5986d9-a387-470c-9709-bb5ed70fa930\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"bookingDate\": \"2024-07-22T06:56:05.000Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"fare\": 776.22\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "claim booking",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}",
+										"description": "driver jwt token from main server",
+										"type": "text"
+									},
+									{
+										"key": "x-user-type",
+										"value": "driver",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{owtoUserApiUrl}}/owto-biz/api/drivers/bookings/{{bookingId}}/claim",
+									"host": [
+										"{{owtoUserApiUrl}}"
+									],
+									"path": [
+										"owto-biz",
+										"api",
+										"drivers",
+										"bookings",
+										"{{bookingId}}",
+										"claim"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "driver claimed bookings",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}",
+										"description": "driver jwt token from main server",
+										"type": "text"
+									},
+									{
+										"key": "x-user-type",
+										"value": "driver",
+										"description": "client distinction",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{owtoUserApiUrl}}/owto-biz/api/drivers/bookings/me",
+									"host": [
+										"{{owtoUserApiUrl}}"
+									],
+									"path": [
+										"owto-biz",
+										"api",
+										"drivers",
+										"bookings",
+										"me"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "driver claimed bookings",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Authorization",
+												"value": "Bearer {{driverToken}}",
+												"description": "driver jwt token from main server",
+												"type": "text"
+											},
+											{
+												"key": "x-user-type",
+												"value": "driver",
+												"description": "client distinction",
+												"type": "text"
+											}
+										],
+										"url": {
+											"raw": "{{owtoUserApiUrl}}/owto-biz/api/drivers/bookings/me",
+											"host": [
+												"{{owtoUserApiUrl}}"
+											],
+											"path": [
+												"owto-biz",
+												"api",
+												"drivers",
+												"bookings",
+												"me"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Access-Control-Allow-Origin",
+											"value": "*"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "3354"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"d1a-aIV9FjIDXR8Q8UBxLEf9dUFJJnM\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 17 Sep 2024 20:44:05 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": \"success\",\n    \"data\": [\n        {\n            \"id\": 6,\n            \"companyName\": \"Mike Alfred Co.\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayNumberRider\": \"9178307177\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"0d984969-1de7-40ed-8632-33d9c57a003d\",\n            \"pickUpAddress\": \"Carlyn General Merchandise\",\n            \"dropOffAddress\": \"San Mateo-Rodriguez Rd, 1860 Rodriguez, Philippines\",\n            \"bookingDate\": \"2024-07-23T06:59:58.470Z\",\n            \"scheduleDate\": \"2024-07-24T11:04:00.000Z\",\n            \"noteToDriver\": \"\",\n            \"variantName\": \"Owto More\",\n            \"pickUpPoint\": {\n                \"x\": 121.14504,\n                \"y\": 14.73196\n            },\n            \"dropOffPoint\": {\n                \"x\": 121.14504,\n                \"y\": 14.73196\n            },\n            \"fare\": 73.64,\n            \"seatCount\": 6\n        },\n        {\n            \"id\": 9,\n            \"companyName\": \"Mike Alfred Co.\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayNumberRider\": \"9178307177\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"5289dbea-aee2-45a7-af31-840abac57897\",\n            \"pickUpAddress\": \"DCG Carwash\",\n            \"dropOffAddress\": \"Pura V. Kalaw Elementary School\",\n            \"bookingDate\": \"2024-08-02T03:37:54.839Z\",\n            \"scheduleDate\": \"2024-08-02T19:37:00.000Z\",\n            \"noteToDriver\": \"sadadada\",\n            \"variantName\": \"Owto Class\",\n            \"pickUpPoint\": {\n                \"x\": 121.14234,\n                \"y\": 14.72901\n            },\n            \"dropOffPoint\": {\n                \"x\": 121.14234,\n                \"y\": 14.72901\n            },\n            \"fare\": 1017.56,\n            \"seatCount\": 5\n        },\n        {\n            \"id\": 1,\n            \"companyName\": \"arbitrary\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayNumberRider\": \"\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"b40a57b2-472e-4ae5-9532-bd4b4cebc233\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"bookingDate\": \"2024-07-21T12:15:56.504Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"noteToDriver\": \"mama maoy\",\n            \"variantName\": \"Owto Premium\",\n            \"pickUpPoint\": {\n                \"x\": 121.02592,\n                \"y\": 14.638247\n            },\n            \"dropOffPoint\": {\n                \"x\": 121.02592,\n                \"y\": 14.638247\n            },\n            \"fare\": 644.05,\n            \"seatCount\": 1\n        },\n        {\n            \"id\": 2,\n            \"companyName\": \"arbitrary\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayNumberRider\": \"\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"6a913f26-1c1a-48a4-bff9-79a524a4068d\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"bookingDate\": \"2024-07-21T12:31:15.192Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"noteToDriver\": \"mama maoy\",\n            \"variantName\": \"Owto Premium\",\n            \"pickUpPoint\": {\n                \"x\": 121.02592,\n                \"y\": 14.638247\n            },\n            \"dropOffPoint\": {\n                \"x\": 121.02592,\n                \"y\": 14.638247\n            },\n            \"fare\": 644.05,\n            \"seatCount\": 1\n        },\n        {\n            \"id\": 11,\n            \"companyName\": \"arbitrary\",\n            \"displayNameRider\": \"Mike Faggot\",\n            \"displayNumberRider\": \"\",\n            \"displayPhotoRider\": \"https://firebasestorage.googleapis.com/v0/b/owto-prod.appspot.com/o/display-photo%2Ffb-EfxA9ytbKnMEmzH8tFmSehp3x5R2.png?alt=media&token=aa7f839c-deff-4904-b7e9-09aee929aae3\",\n            \"bookingId\": \"bef07438-aa03-4896-b779-dd6ba9b086bf\",\n            \"pickUpAddress\": \"Karl\",\n            \"dropOffAddress\": \"Pakyu\",\n            \"bookingDate\": \"2024-09-08T17:42:32.280Z\",\n            \"scheduleDate\": \"2024-09-09T14:25:56.819Z\",\n            \"noteToDriver\": \"mama maoy\",\n            \"variantName\": \"Owto Premium\",\n            \"pickUpPoint\": {\n                \"x\": 121.02592,\n                \"y\": 14.638247\n            },\n            \"dropOffPoint\": {\n                \"x\": 121.02592,\n                \"y\": 14.638247\n            },\n            \"fare\": 708.84,\n            \"seatCount\": 1\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "accept booking",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}",
+										"description": "driver jwt token from main server",
+										"type": "text"
+									},
+									{
+										"key": "x-user-type",
+										"value": "driver",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{owtoUserApiUrl}}/owto-biz/api/drivers/bookings/{{bookingId}}/accept",
+									"host": [
+										"{{owtoUserApiUrl}}"
+									],
+									"path": [
+										"owto-biz",
+										"api",
+										"drivers",
+										"bookings",
+										"{{bookingId}}",
+										"accept"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "pickup rider - fixing",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}",
+										"description": "driver jwt token from main server",
+										"type": "text"
+									},
+									{
+										"key": "x-user-type",
+										"value": "driver",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{owtoUserApiUrl}}/owto-biz/api/drivers/bookings/{{bookingId}}/pick-up",
+									"host": [
+										"{{owtoUserApiUrl}}"
+									],
+									"path": [
+										"owto-biz",
+										"api",
+										"drivers",
+										"bookings",
+										"{{bookingId}}",
+										"pick-up"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "start trip - wip",
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "Bearer {{driverToken}}",
+										"type": "text"
+									},
+									{
+										"key": "x-user-type",
+										"value": "driver",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "{{owtoUserApiUrl}}/owto-biz/api/drivers/bookings/{{bookingId}}/start",
+									"host": [
+										"{{owtoUserApiUrl}}"
+									],
+									"path": [
+										"owto-biz",
+										"api",
+										"drivers",
+										"bookings",
+										"{{bookingId}}",
+										"start"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "dropoff - wip",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{owtoUserApiUrl}}/owto-biz/api/drivers/bookings/{{bookingId}}/drop-off",
+									"host": [
+										"{{owtoUserApiUrl}}"
+									],
+									"path": [
+										"owto-biz",
+										"api",
+										"drivers",
+										"bookings",
+										"{{bookingId}}",
+										"drop-off"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "rider",
+					"item": [
+						{
+							"name": "New Request",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "bookingId",
+			"value": "6a913f26-1c1a-48a4-bff9-79a524a4068d",
+			"type": "string"
+		}
+	]
+}

@@ -1,0 +1,23 @@
+@media (max-width: 600px) and (min-width: 400px) {
+  #login .content {
+    height: 65vh;
+  }
+  #login .background {
+    height: 35vh;
+  }
+  #login .background .image {
+    height: 100%;
+  }
+}
+
+@media (max-width: 399px) and (min-width: 300px) {
+  #login .content {
+    height: 70vh;
+  }
+  #login .background {
+    height: 30vh;
+  }
+  #login .background .image {
+    height: 100%;
+  }
+}
