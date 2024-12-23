@@ -9,6 +9,9 @@ export default defineConfig({
     port: 8080,
     strictPort: true,
   },
+  build: {
+    target: "esnext",
+  },
   plugins: [vue(), VueDevTools()],
   resolve: {
     alias: {
